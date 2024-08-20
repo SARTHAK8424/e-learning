@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartly Wired</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Smartly.css">
+    <style>
+        .dark{
+            background-color: #D8BFD8;
+        }
+
+        .dark .navbar{
+            background-color: #D8BFD8;
+        }
+
+        .chatbox {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    display: none; /* Initially hide the chatbox */
+    background-color: #fff; 
+    z-index: 9999; 
+    border-radius: 25px;
+}
+
+.chatbox input{
+    border-radius: 15px;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+#chatMessages {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="text"], .send {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#chatIcon {
+    position: fixed;
+    bottom: 10px;
+    right:10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 40px;
+    width: 80px;
+}
+
+.send{
+    height: 30px;
+    width:80px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color:white;
+}
+
+#chatIcon:hover, .send:hover {
+    background-color: #45a049;
+}
+
+    </style> 
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="logo">
+                <img src="Tutedude.png" alt="">
+            </div>
+            <div class="list">
+                <ul>
+                    <li><a href="#target-element">Explore Programs</a></li>
+                    <li><a href="#target-element2">Offers</a></li>
+                    <li><a href="#target-element3">FAQ's</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search for a course...">
+                <ul id="searchResults"></ul>
+            </div>
+            <div class="buttons">
+                <button><a href="login.html">Login</a></button>
+                <button class="two"><a href="signup.html">Signup</a></button>
+            </div>
+            <div class="mode">
+                <button onclick="myFunction()">Switch mode</button>
+            </div>
+        </div>
+        <button id="chatIcon">Chat</button>
+
+<!-- Chatbox container -->
+<div id="chatbox" class="chatbox">
+    <div id="chatMessages"></div>
+    <input type="text" id="messageInput" placeholder="Type your message...">
+    <button class="send" onclick="sendMessage()">Send</button>
+</div>
+        <div class="content">
+            <div class="quote">
+                <img src="" alt="">
+                <h2>The roots of education are bitter, but the fruit is sweet.</h2>
+                <p>~Aristotle</p>
+                <button><a href="#target-element2">What is 100% refund offer?</a></button> 
+            </div>
+            <div class="image">
+                <img src="recipe1.png" alt="">
+            </div>
+        </div>
+        <div class="content2" >
+            <h2 data-aos="fade-up">Our <br> Exclusive launch</h2><hr data-aos="fade-up">
+            <div class="refund">
+                <h3 data-aos="fade-down" data-aos-delay="100">100% <br> Refund</h3>
+                <ul>
+                    <li data-aos="fade-right" data-aos-delay="100" data-aos-duration="500"><i class="fa-regular fa-circle-check"></i>Value Learning</li>
+                    <li data-aos="fade-right" data-aos-delay="100" data-aos-duration="500"><i class="fa-regular fa-circle-check"></i>Industrial Upskilling</li>
+                    <li data-aos="fade-right" data-aos-delay="100" data-aos-duration="500"><i class="fa-regular fa-circle-check"></i>Learn For Effectively Free</li>
+                </ul>
+            </div>
+            <button data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0"><a href="#target-element2">What is 100% refund offer?</a></button>
+        </div>
+        <div class="content3">
+            <h3>Brighten Up Yourself With Some Latest Skills</h3>
+            <div class="video">
+                <p>Learn any skill at your own pace with personal mentorship and immediate doubt clearing by your own dude.</p>
+                <video src="Tutedude Intro Video1.mp4" type="video/mp4" controls poster="recipe1.png"></video>
+            </div>
+        </div>
+        <div class="content4">
+            <h3>Our Achievements</h3>
+            <div class="achievements">
+                <div class="box1 border">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <p>total students</p>
+                    <h4>2,100+</h4>
+                </div>
+                <div class="box2 border">
+                    <i class="fa-solid fa-book-open"></i>
+                    <p>total course</p>
+                    <h4>9</h4>
+                </div>
+                <div class="box3 border">
+                    <i class="fa-solid fa-star"></i>
+                    <p>Average Rating</p>
+                    <h4>4.8</h4>
+                </div>
+                <div class="box4 border">
+                    <i class="fa-solid fa-question"></i>
+                    <p>Total doubts solved</p>
+                    <h4>21,000+</h4>
+                </div>
+                <div class="box5 border">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>Average Response Time</p>
+                    <h4>5min</h4>
+                </div>
+                <div class="box6 border">
+                    <i class="fa-solid fa-gear"></i>
+                    <p>Awesome projects made by students</p>
+                    <h4>21,000+</h4>
+                </div>
+            </div>
+        </div>
+        <div class="offer" id="target-element2">
+            <h3>A limited seats opportunity</h3>
+            <h2>100% Refund Offer</h2>
+            <div class="card">
+                <div class="card1 border">
+                    <p class="head">What is 100% Refund?</p>
+                    <p class="main">
+                        Alimited time opportunity for rewarding our learners to upskill for free.
+                    </p>
+                    <ul>
+                        <li>UPSKILL</li>
+                        <li>1 to 1 MENTORING</li>
+                        <li>CERTIFICATION</li>
+                        <li>EFFECTIVE FEE</li>
+                    </ul>
+                    <p class="foot">"Now you can learn from TuteDude Effectively for FREE"</p>
+                </div>
+                <div class="card2 border">
+                    <p class="head">How does 100% Refund Work?</p>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <p class="foot">From the date of enrollment, you will have 3 months time to complete all the lectures,assignments, and dedicated projects shared with you, which will be reviewed by the mentors for feedback.</p>
+                </div>
+            </div>
+        </div>
+        <div class="programmes" id="target-element">
+            <h2>Individual Courses Skill Programme</h2>
+            <div class="individual-courses">
+                <div class="course9 border">
+                    <a href="digital.html"><img src="digital.jpg" alt=""></a>
+                    <p>Digital Marketing</p>
+                </div>
+                <div class="course2 border">
+                    <a href="web.html"><img src="mern.jpg" alt=""></a>
+                    <p>Web Development with MERN Stack</p>
+                </div>
+                <div class="course3 border">
+                    <a href="c++.html"><img src="c++.png" alt=""></a>
+                    <p>C++</p>
+                </div>
+                <div class="course4 border">
+                    <a href="java.html"><img src="java.png" alt=""></a>
+                    <p>Java</p>
+                </div>
+                <div class="course5 border">
+                    <a href="python.html"><img src="python.png" alt=""></a>
+                    <p>Python</p>
+                </div>
+                <div class="course6 border">
+                    <a href="datastructure.html"><img src="datastructure.png" alt=""></a>
+                    <p>Data Structures & Alorithms</p>
+                </div>
+                <div class="course7 border">
+                    <a href="dbms.html"><img src="dbms.jpg" alt=""></a>
+                    <p>Database Management System</p>
+                </div>
+                <div class="course8 border">
+                    <a href="uiux.html"><img src="uiux.jpg" alt=""></a>
+                    <p>UI/UX Design</p>
+                </div>
+                
+                <div class="course1 border">
+                    <a href="#"><img src="web.png" alt=""></a>
+                    <p>Web Development with PHP/MySQL</p>
+                </div>
+            </div>
+        </div>
+        <div class="best">
+            <h2>Why are we the best?</h2>
+            <table>
+                <tr rowspan="1">
+                  <th style="width:52%">Features</th>
+                  <th style="width:14%">Recorded <br>class <br>Platform</th>
+                  <th style="width:14%">Live <br> Class <br> Platform</th>
+                  <th style="width:14%">Tutedude</th>
+                </tr>
+                <tr>
+                  <td>Affordability</td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                  <td><i class="fa-solid fa-xmark"></i></td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>Learning Flexibility</td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                  <td><i class="fa-solid fa-xmark"></i></td>
+                  <td><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i>
+                <tr>
+                  <td>Instant Doubt Solving</td>
+                  <td><i class="fa-solid fa-xmark"></i></td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>Personal Mentorship</td>
+                  <td><i class="fa-solid fa-xmark"></i></td>
+                  <td><i class="fa-solid fa-xmark"></i></td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>Dedicated Projects</td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                  <td><i class="fa-solid fa-check"></i></td>
+                </tr>
+              </table>
+              
+        </div>
+        <div class="courses">
+            <h2>Interested in our other courses too?</h2>
+            <div class="boxes">
+                <div class="boxes1 border">
+                    <h5>Customized Pack</h5>
+                    <h4>4</h4>
+
+                    <p>courses @ 1499INR</p>
+                    <span>Refund offer valid for 1 year</span> <br>
+                    <button>save 1297INR</button> <br>
+                    <button class="two">Know More</button>
+                </div>
+                <div class="boxes2 border">
+                    <h5>All Access Pack</h5>
+                    <h4>9</h4>
+                    <p>courses @ 3,499INR</p>
+                    <span>Refund offer valid for 1 year</span> <br>
+                    <button>save 1,970INR</button> <br>
+                    <button class="two">Know More</button> 
+                </div>
+            </div>
+        </div>
+        <div class="query" id="target-element3">
+            <h3>Have Any Query?</h3>
+            <div class="que1 outer">
+                <p>Why should I opt for TuteDude?</p>
+                <p class="ans">Tutedude provides you the professional curated content by Indian instructors along with live doubt solving and personal one to one mentorship which you won't find anywhere else. And amazingly, you learn for Free if you are enrolled under 100% Refund offer.</p>
+            </div>
+            <div class="que2 outer">
+                <p>What is the validity of the courses and when can I watch them?</p>
+                <p class="ans">You will have lifetime access to the courses and can watch the lectures anytime you want.</p>
+            </div>
+            <div class="que3 outer">
+                <p>Will my course validity expire after I receive the 100% Refund amount ?</p>
+                <p class="ans">No, you will still have the lifetime access on your courses along with mentor's support, even after you have received your 100% refund amount.</p>
+            </div>
+            <div class="que4 outer">
+                <p>How will receive my 100% Refund amount ?</p>
+                <p class="ans">You will receive the 100% refund amount through the original payment mode on completing the courses within the time period.</p>
+            </div>
+            <div class="que5 outer">
+                <p>How will my doubts be solved and will there be one on one interaction?</p>
+                <p class="ans">Your doubts will be solved on a live chat, as soon as you get a doubt just ping your mentor through the chat option and within 5-10 minutes you will be connected to him to solve your doubts.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="list1 margin">
+                <h5>Other Links</h5>
+                <ul>
+                    <li><a href="#">About us </a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="social margin">
+                <h5>Social Links</h5>
+                <div class="icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="list2 margin">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="#">support@tutedude.com</a></li>
+                    <li><a href="#">+91 349873489</a></li>
+                    <li><a href="#">Mon-Sat 10am-6pm</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS data by using init we initialized it -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+         function myFunction() {
+		 	let element = document.body;
+		 	element.classList.toggle("dark");
+		 }
+      AOS.init();
+    </script>
+    <script src="script.js"></script>
+     <script>
+        
+    var chatbox = document.getElementById("chatbox");
+    var chatIcon = document.getElementById("chatIcon");
+    
+    
+    function toggleChatbox() {
+        if (chatbox.style.display === "none") {
+            chatbox.style.display = "block";
+        } else {
+            chatbox.style.display = "none";
+        }
+    }
+    
+    
+    chatIcon.addEventListener("click", toggleChatbox);
+    
+    
+    function sendMessage() {
+        var messageInput = document.getElementById("messageInput");
+        var message = messageInput.value.trim();
+        
+        if (message !== "") {
+            displayMessage("You", message);
+
+            messageInput.value = "";
+        }
+    }
+    
+    function displayMessage(sender, message) {
+        var chatMessages = document.getElementById("chatMessages");
+        var messageDiv = document.createElement("div");
+        messageDiv.innerHTML = "<strong>" + sender + ": </strong>" + message;
+        chatMessages.appendChild(messageDiv);
+        // Scroll to bottom to show the latest message
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+     </script>
+    
+    
+</body>
+</html>

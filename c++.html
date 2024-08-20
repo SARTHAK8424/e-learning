@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="web.css">
+    <style>
+        
+        #slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    
+  }
+  #slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    margin-top: 140px;
+    margin-bottom: 70px;
+  }
+  .slide {
+    flex: 0 0 auto;
+    width: 400px;
+    
+  }
+
+  .slide p{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    margin-left: 5px;
+  }
+
+  .slide video[poster]{
+    width: fit-content;
+    height: 200px;
+  }
+
+  video {
+    width: 400px;
+    height: 200px;
+    /* border-radius: 30px; */
+    padding-right: 10px; 
+  }
+   .arrow-button {
+    position: absolute;
+    top: 56%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    color: #800080;
+    z-index: 1;
+  }
+  .arrow-button.left {
+    left: 0;
+  }
+  .arrow-button.right {
+    right: 0;
+  } 
+
+  #shareButton{
+    
+    height: 50px;
+    width: 130px;
+    border-radius: 25px;
+    border: none;
+    background-color: #800080;
+    font-size: 16px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    right: 10px;
+    bottom: -700px;
+    /* z-index: -1; */
+    cursor: pointer;
+  }
+
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  /* background-color: white; */
+  background: linear-gradient( 312.75deg, rgba(255, 155, 155, 0.3) 5.04%, rgba(99, 4, 46, 0.3) 39.16%, rgba(86, 1, 86, 0.3) 107.92% );
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-content h2,p{
+  color: white;
+}
+
+.modal-content ul li{
+  list-style-type: none;
+}
+
+.modal-content ul li a{
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+      </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="logo">
+                <img src="Tutedude.png" alt="">
+            </div>
+            <div class="list">
+                <ul>
+                    <li><a href="Smartly.html">Home</a></li>
+                    <li><a href="Smartly.html#target-element">Explore Programs</a></li>
+                    <li><a href="Smartly.html#target-element2">Offers</a></li>
+                    <li><a href="Smartly.html#target-element3">FAQ's</a></li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button><a href="login.html">Login</a></button>
+                <button class="two"><a href="signup.html">Signup</a></button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="left">
+                <h2><p class="one">Learn C++</p> with TuteDude, effectively for <span>FREE</span></h2>
+                <p>By getting 100% of your fees back on course completion</p>
+                <h4>699INR</h4>
+                <p class="two">Pay now & get it back on course completion</p>
+                <a href="Enroll.html"><button>Enroll Now</button></a>
+            </div>
+            <div class="right">
+                <button class="one">
+                    Enroll
+                </button>
+                <i class="fa-solid fa-arrow-down"></i>
+                <button class="two">Upskill</button>
+                <i class="fa-solid fa-arrow-down"></i>
+                <button class="three">
+                    100% FeesBack
+                </button>
+            </div>
+        </div>
+        <div class="info">
+            <div class="info1 border">
+                <div class="icon"><i class="fa-solid fa-star"></i></div>
+                <div class="content1">
+                    <h4>4.8</h4>
+                    <p>Rating</p>
+                </div>
+            </div>
+            <div class="info2 border">
+                <div class="icon"><i class="fa-solid fa-users"></i></div>
+                <div class="content1">
+                    <h4>4000+</h4>
+                    <p>Students</p>
+                </div>
+            </div>
+            <div class="info3 border">
+                <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="content1">
+                    <h4>1 time</h4>
+                    <p>payment</p>
+                </div>
+            </div>
+            <div class="info4 border">
+                <div class="icon"><i class="fa-solid fa-user"></i></div>
+                <div class="content1">
+                    <h4>Anyone</h4>
+                    <p>can do</p>
+                </div>
+            </div>
+            <div class="info5 border">
+                <div class="icon"><i class="fa-solid fa-globe"></i></div>
+                <div class="content1">
+                    <h4>Simple <br> English</h4>
+                    <p>Language</p>
+                </div>
+            </div>
+            <div class="info6 border">
+                <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="content1">
+                    <h4>49 hours</h4>
+                    <p>content duration</p>
+                </div>
+            </div>
+            <div class="info7 border">
+                <div class="icon"><i class="fa-solid fa-infinity"></i></div>
+                <div class="content1">
+                    <h4>Lifetime</h4>
+                    <p>Course Access</p>
+                </div>
+            </div>
+            <div class="info8 border">
+                <div class="icon"><i class="fa-solid fa-record-vinyl"></i></div>
+                <div class="content1">
+                    <h4>Self- <br> paced</h4>
+                    <p>Recorded lectures</p>
+                </div>
+            </div>
+        </div>
+        <div id="slider-container">
+            <button class="arrow-button left" onclick="prevSlide()">&#10094;</button>
+            <div id="slider">
+              <div class="slide">
+                <video src="C++1.mp4" type="video/mp4"  controls poster="download.png"></video>
+                <p>Introduction To C++</p>
+              </div>
+              <div class="slide">
+                <video src="C++2.mp4" type="video/mp4" controls poster="download.png"></video>
+                <p>FlowCharts</p>
+              </div>
+              <div class="slide">
+                <video src="C++3.mp4" type="video/mp4" controls poster="download.png"></video>
+                <p>Loops & Functions</p>
+              </div>
+              <div class="slide">
+                <video src="C++4.mp4" type="video/mp4" controls poster="download.png"></video>
+                <p>Conditionals Statements</p>
+              </div>
+              <div class="slide">
+                <video src="C++5.mp4" type="video/mp4" controls poster="download.png"></video>
+                <p>Strings</p>
+              </div>
+              <div class="slide">
+                <video src="C++6.mp4" type="video/mp4" controls poster="download.png"></video>
+                <p>Array</p>
+              </div>
+              <div class="slide">
+                <video src="C++7.mp4" type="video/mp4" controls poster="download.png"></video>
+                <p>Recursion</p>
+              </div>
+              <div class="slide">
+                <video src="C++8.mp4" type="video/mp4" controls poster="download.png"></video>
+                <p>Patterns</p>
+              </div>
+              
+            </div>
+            <button class="arrow-button right" onclick="nextSlide()">&#10095;</button>
+          </div>
+          <button id="shareButton">Share Course</button>
+
+<div id="shareModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Share Course</h2>
+    <p>Share via:</p>
+    <ul>
+      <li><a href="#">Email</a></li>
+      <li><a href="#">Social Media</a></li>
+      <!-- <li><a href="https://web.whatsapp.com/">Whatsapp</a></li> -->
+      <li><a id="whatsappLink" href="https://web.whatsapp.com/">WhatsApp</a></li>
+
+    </ul>
+  </div>
+</div>
+        <div class="footer">
+            <div class="list1 margin">
+                <h5>Other Links</h5>
+                <ul>
+                    <li><a href="#">About us </a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="social margin">
+                <h5>Social Links</h5>
+                <div class="icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="list2 margin">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="#">support@tutedude.com</a></li>
+                    <li><a href="#">+91 349873489</a></li>
+                    <li><a href="#">Mon-Sat 10am-6pm</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slideIndex = 0;
+
+function showSlides() {
+  const slides = document.querySelectorAll('.slide');
+  if (slideIndex >= slides.length) slideIndex = 0;
+  if (slideIndex < 0) slideIndex = slides.length - 1;
+  const offset = -slideIndex * 200;
+  document.getElementById('slider').style.transform = `translateX(${offset}px)`;
+}
+
+function nextSlide() {
+  slideIndex++;
+  showSlides();
+}
+
+function prevSlide() {
+  slideIndex--;
+  showSlides();
+}
+
+showSlides(); // Display initial slide
+
+
+var modal = document.getElementById("shareModal");
+var btn = document.getElementById("shareButton");
+var span = document.getElementsByClassName("close")[0]; //[0] is used to access the first element that matches the name close. document.getElementsByClassName() returns a collection, not a single elemnt, so to access hese elements we have to use indices
+
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+
+
+document.getElementById("whatsappLink").onclick = function() {
+  var courseUrl = "http://127.0.0.1:5501/c++.html";  
+  var encodedCourseUrl = encodeURIComponent(courseUrl);
+  var whatsappMessage = "Check out this course: " + encodedCourseUrl;
+  var whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(whatsappMessage);
+  window.open(whatsappUrl, "_blank");
+}
+
+
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+        
+    </script>
+</body>
+</html>

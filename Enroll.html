@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width:100vw;
+            height:100vh;
+            color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient( 312.75deg, rgba(255, 155, 155, 0.3) 5.04%, rgba(99, 4, 46, 0.3) 39.16%, rgba(86, 1, 86, 0.3) 107.92% );
+  
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"], select {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Details</h2>
+        <form id="paymentForm">
+          <div class="form-group">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+              <option value="creditCard">Credit Card</option>
+              <option value="netBanking">Net Banking</option>
+              <option value="upi">UPI</option>
+            </select>
+          </div>
+          <div id="creditCardFields" class="form-fields">
+            <div class="form-group">
+              <label for="cardNumber">Card Number:</label>
+              <input type="text" id="cardNumber" name="cardNumber">
+            </div>
+            <div class="form-group">
+              <label for="expiryDate">Expiry Date:</label>
+              <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV:</label>
+              <input type="text" id="cvv" name="cvv">
+            </div>
+          </div>
+          <div id="netBankingFields" class="form-fields" style="display: none;">
+            <!-- Fields for Net Banking -->
+            <div class="form-group">
+              <label for="bank">Select Bank:</label>
+              <select id="bank" name="bank">
+                <option value="bank1">Bank 1</option>
+                <option value="bank2">Bank 2</option>
+                <option value="bank3">Bank 3</option>
+              </select>
+            </div>
+          </div>
+          <div id="upiFields" class="form-fields" style="display: none;">
+            <!-- Fields for UPI -->
+            <div class="form-group">
+              <label for="upiId">UPI ID:</label>
+              <input type="text" id="upiId" name="upiId">
+            </div>
+          </div>
+          <button type="submit" id="payButton">Pay Now</button>
+        </form>
+      </div>
+      <script>
+        document.getElementById("paymentMethod").addEventListener("change", function() {
+  var selectedMethod = this.value;
+  var paymentFields = document.getElementsByClassName("form-fields");
+  for (var i = 0; i < paymentFields.length; i++) {
+    if (paymentFields[i].id === selectedMethod + "Fields") {
+      paymentFields[i].style.display = "block";
+    } else {
+      paymentFields[i].style.display = "none";
+    }
+  }
+});
+
+document.getElementById("paymentForm").addEventListener("submit", function(event) {
+  event.preventDefault(); //ye prevent krta hai from default form submission
+  
+  var selectedMethod = document.getElementById("paymentMethod").value;
+  switch (selectedMethod) {
+    case "creditCard":
+      
+      break;
+    case "netBanking":
+      
+      break;
+    case "upi":
+      
+      break;
+    default:
+      
+      break;
+  }
+  alert("Payment successful! You are now enrolled in the course.");
+  
+});
+
+      </script>
+      
+</body>
+</html>
